@@ -1,0 +1,82 @@
+==================================================================
+https://keybase.io/nander
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://nanderson.me
+  * I am nander (https://keybase.io/nander) on keybase.
+  * I have a public key with fingerprint 7D4B 66DE 0A7E 62A8 70C5  736F 7334 F484 42F2 07D9
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.7.2"
+        },
+        "key": {
+            "fingerprint": "7d4b66de0a7e62a870c5736f7334f48442f207d9",
+            "host": "keybase.io",
+            "key_id": "7334F48442F207D9",
+            "uid": "c44cc3352944015d8f511eee56b8ea00",
+            "username": "nander"
+        },
+        "merkle_root": {
+            "ctime": 1413907610,
+            "hash": "6ce92fdf6abefb1e8ebd7df7c3ddaa573f6bf72ce2478d06591d2891770356a3d82809a2b081185b0e25304dbf0d35513343e762e18bc8c45d92fc40ea6d16bf",
+            "seqno": 82433
+        },
+        "service": {
+            "hostname": "nanderson.me",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1413907634,
+    "expire_in": 157680000,
+    "prev": "f074b4687d5734bb8eaa9df122fe90c4ab228097ea2e8deda87e81042e15dd97",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v2
+
+owFdkntQFVUcxy+P8MpjoIkBHBmxBaXH7bKPs48LOaHEsyBHMIGkO7t7znI3YPey
+eyHwcscwqCkwiGCGiKKHjaU0gFFQRqjcERtG+iMs4Y/EMtPRkbEEZaxol7EpO3+d
+M+dzvr/f93t+7RFBlsAAHdxo2vbbmtmAqcuCpSir6YgXE1RYj6V6MbFSRorH3Cl8
+FcJSsQpUL/A6ssvqRkWFyP6cvvEOY8NqkabLqmJQuJ21k5jPZuLmY0lWypHm1mRT
+C2MhEBgGIpxnEUPyHIuLNEsxEktRQAIcAKRE4ix0GJIuVffcVRVb1XTK0NQx+KxV
+PsvgHzf5mtULEQBRpCiadACAEzTkJJogEEI0I3CIx3ET1JF2x5LCKxBpZrdVSKuo
+RE5NVVctix7ZBAhAUA6cZQjc6IfXXcYTRkQOUoISwwtIEgjEIQGyUGJFCkKeN8xI
+jCCxpIhIwHIQZ2gHAUnOQbAsTtEMT0GO5HAHTwo4RxAcLeCIpCkcQEHCIUXThGGM
+QixDIoITRE4ENDTKiQBHPAMJQ9owoKNqRcVSORJQlM88arWyiMy2zczusqarit04
+2jC3pnpUUa00blwej1tPNU176t0m+jwSnDo6vKriFGQFGl/23z8lDPR/gVDAhqE6
+t6whp2wSNMtwuLHMQqjW0JRwFgiA4VhoRAIEM3zeASWCJCXkwEXAC6SZA4t4EnEQ
+QWMUEEfgwPBNQ+hg/7VJGX3y5YakLpcrvKdGQ5jvlcD4YEtAoCXknkBzaC2ha6P+
+meS8mijLofbHVlrXJy4ELXTFZ76a7NnVsIFb8Qp/eIKq0i+k9eYXw9iL91lfKIg/
+33GyKO39uZ7EyLEDfeduHz89ev7gzPXohOyCiqUAOcfyRmJ443zMztNzAaMT9prZ
+HqxvLoyfTr2/1Nc/9OgzC/uDM63g2M2BsavxGVt83qUrxVf5n2abDlWi3CCldxOj
+R++Ia3sLn/fO1MR9sK7Ut9A12f8R/qL/58L0fK6lqCAk/K9rB5/84vVN3cuh7QVW
+f9Sgj5Rvnbr00ud5e/z9vYn5JZ+lFKV3l40c70p++dO4hq4tHTlny7ae2X6rI792
+e5Va+11j0nTS+N7oDKXJ/0vL0Hs3Pm4Nt1Z+9WN2SWRCc5wt6qnSvjZ31cXWnBEl
+02GJGNqcudj4fdmJxYzgB0eceELyw0ulu49og1ZXcu7vZSfIkviYo8NOoqVzaiXt
+UiM8HJDZ/Sf/DQh1fd18JizW5i8fPnXWM++M3cx31rQdvWmdOHB5nzc/6NzTpFzV
+Vehpy95Vd60n8rYt5lhSY3VDIBogJ9cy3XkPEFeqpx4ZSElRrHumw0CzdfKkvW7r
+3vXrqseKfNv84598++Gzrp3RrctjF5ZXYMf1X50Tb3YOj/4Qdq819d3WvIpCV0FY
+SMuGHeMzkQ2Lk2uoodeCC594iFbfpqxfwsHuOUsIQdO5+4j9cbuLEyLemdH/Bg==
+=Ha/U
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/nander
+
+==================================================================
+

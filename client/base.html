@@ -1,0 +1,47 @@
+<template name="ApplicationLayout">
+  <div class="off-canvas-wrap">
+    <div class="inner-wrap">
+      <!-- Desktop navigation -->
+        <div class="contain-to-grid">
+          <nav class="top-bar hide-for-small contain-to-grid" data-topbar>
+            <ul class="title-area">
+              <li class="name">
+                <h1><a href="https://nanderson.me/">Nicholas Anderson</a></h1>
+              </li>
+            </ul>
+            <section class="top-bar-section">
+              <ul class="right">
+                <li class="{{#if page.home}}active{{/if}}"><a href="/">About</a></li>
+                <li class="{{#if page.contact}}active{{/if}}"><a href="/contact">Contact</a></li>
+                <li class="{{#if page.active}}active{{/if}}"><a href="/projects">Projects</a></li>
+                <li class="{{#if page.active}}active{{/if}}"><a href="/resume.pdf">Resume</a></li>
+              </ul>
+            </section>
+          </nav>
+        </div>
+      <!-- Mobile navigation -->
+        <nav class="tab-bar show-for-small">
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon"><span></span></a>
+          </section>
+          <section class="middle tab-bar-section">
+            <h1 class="title">Nicholas Anderson</h1>
+          </section>
+        </nav>
+        <aside class="left-off-canvas-menu">
+          <ul class="off-canvas-list">
+            <li><label>Nicholas Anderson</label></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/resume">Resume</a></li>
+          </ul>
+        </aside>
+      <!-- End navigation -->
+      <section class="main-section">
+          {{> yield}}
+      </section>
+      <a class="exit-off-canvas"></a>
+    </div>
+  </div>
+</template>
