@@ -47,8 +47,26 @@ Router.route('/resume', function() {
     }
   }
 });
-Router.onAfterAction(function () {
-  Deps.afterFlush(function () {
-    $(document).foundation();
-  });
+Router.route('/projects', function() {
+  this.render("Projects");
+}, {
+  data: function() {
+    return {
+      page: {
+        projects:true
+      }
+    }
+  }
 });
+Router.route('/resume.pdf', function() {
+  
+}, {
+  where:'server'
+});
+Router.onAfterAction(function () {
+  if (Meteor.isClient) {
+    Deps.afterFlush(function () {
+      $(document).foundation();
+    });
+  }
+}, {where:'client'});
