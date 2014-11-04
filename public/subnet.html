@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+Copyright © 2013 Nicholas Anderson <nicholas.anderson53@gmail.com>
+This work is free. You can redistribute it and/or modify it under the
+terms of the Do What The Fuck You Want To Public License, Version 2,
+as published by Sam Hocevar. See http://www.wtfpl.net/ for more details.
+
+
+            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+                    Version 2, December 2004
+
+ Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
+
+ Everyone is permitted to copy and distribute verbatim or modified
+ copies of this license document, and changing it is allowed as long
+ as the name is changed.
+
+            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+  0. You just DO WHAT THE FUCK YOU WANT TO.
+
+-->
+	<title>AWESOME Subnet calculator</title>
+</head>
+<body>
+	<form id="calcform">
+		<input type="text" id="networkadd" placeholder="Network Address">
+		<input type="text" id="subnetadd" placeholder="Subnet Address">
+		<input type="text" id="ipadd" placeholder="IP Address">
+		<input type="text" id="broadcastadd" placeholder="Broadcast Address">
+		<input type="submit" id="calc">
+	</form>
+	<br>
+	<div id="data">
+		<h3>Binary Values</h3>
+		<table width="100%">
+			<tr>
+				<th width="25%">Network Address</th>
+				<th width="25%">Subnet Address</th>
+				<th width="25%">IP Address</th>
+				<th width="25%">Broadcast Address</th>
+			</tr>
+			<tr>
+				<td style="text-align:center;font-family:monospace" id="networkbin"></td>
+				<td style="text-align:center;font-family:monospace" id="subnetbin"></td>
+				<td style="text-align:center;font-family:monospace" id="ipbin"></td>
+				<td style="text-align:center;font-family:monospace" id="broadcastbin"></td>
+			</tr>
+		</table>
+		<h3>Decimal Values</h3>
+		<table width="100%">
+			<tr>
+				<th width="25%">Network Address</th>
+				<th width="25%">Subnet Address</th>
+				<th width="25%">IP Address</th>
+				<th width="25%">Broadcast Address</th>
+			</tr>
+			<tr>
+				<td style="text-align:center;font-family:monospace" id="networkdec"></td>
+				<td style="text-align:center;font-family:monospace" id="subnetdec"></td>
+				<td style="text-align:center;font-family:monospace" id="ipdec"></td>
+				<td style="text-align:center;font-family:monospace" id="broadcastdec"></td>
+			</tr>
+		</table>
+	</div>
+<script>
+function $(elem) {
+		return document.getElementById(elem);
+}
+function zeropad(data, amount) {
+		while (data.length < amount) {
+				data = "0" + data;
+		}
+		return data;
+}
+function zerotail(data, amount) {
+	while (data.length < amount) {
+			data = data + "0";
+	}
+	return data;
+}
+// Adds spaces every 8 characters
+function binaryoctet(input) {
+	input = input + "";
+	return input.substr(0, 8) + " " + input.substr(8, 8) + " " + input.substr(16, 8) + " " + input.substr(24, 8);
+}
+function tobin(qwer, spaces) {
+	var octets = qwer.split(".");
+	var binary = "";
+	for (var i = 0,len=octets.length;i<len;i++) {
+		var asdf = zeropad(parseInt(octets[i], 10).toString(2), 8);
+		binary = binary + (spaces ? " " : "") + asdf;
+	}
+	return binary;
+}
+function findBin(e) {
+	var data = e.target.value.match(/\b(?:\d{1,3}\.){3}\d{1,3}\b/);
+	if (data == null) {
+		// Invalid IP Address
+		if (e.target.value.length < 1) {
+			$(e.target.id.substr(0, e.target.id.length-3)+"bin").innerHTML="";
+		} else {
+			$(e.target.id.substr(0, e.target.id.length-3)+"bin").innerHTML="<em>Invalid</em>";
+		}
+	} else {
+		$(e.target.id.substr(0, e.target.id.length-3)+"bin").textContent = tobin(data[0], true);
+	}
+}
+function getNetAddr(ip, sub) {
+	return zeropad(( ((parseInt(sub, 2)>>>0) & (parseInt(ip, 2)>>>0))>>>0 ).toString(2), 32);
+}
+function getBroadAddr(net, sub) {
+	return zeropad( ( ( ~(parseInt(sub, 2)>>>0)>>>0 | parseInt(net, 2)>>>0 )>>>0 ).toString(2), 32);
+}
+// Takes octet'd binary and converts it back into octet'd decimal
+function binary2dec(data) {
+	var octets = data.split(" ");
+	var ipaddr = "";
+	for (var i = 0, len=octets.length;i<len;i++) {
+		var asdf = parseInt(octets[i], 2).toString(10);
+		ipaddr = ipaddr + (ipaddr.length>1 ? "." : "") + asdf;
+	}
+	return ipaddr;
+}
+$("networkadd").addEventListener("keyup", findBin, false);
+$("subnetadd").addEventListener("keyup", findBin, false);
+$("ipadd").addEventListener("keyup", findBin, false);
+$("broadcastadd").addEventListener("keyup", findBin, false);
+$("calcform").addEventListener("submit", function(e) {
+	e.preventDefault();
+	if ($("ipadd").value.length > 1 && $("subnetadd").value.length > 1) {
+		// Calculate Network address and Broadcast address
+		var subnetbin = tobin($("subnetadd").value, false);
+		var ipbin = tobin($("ipadd").value.match(/\b(?:\d{1,3}\.){3}\d{1,3}\b/)[0], false);
+		$("networkbin").textContent = binaryoctet(getNetAddr(ipbin, subnetbin));
+	} else if ($("ipadd").value.length > 1) {
+		var subnetbin = zerotail(new Array(parseInt($("ipadd").value.substr($("ipadd").value.search("/")+1), 10)+1).join("1"), 32);
+		$("subnetbin").textContent = binaryoctet(subnetbin);
+		var ipbin = tobin($("ipadd").value.match(/\b(?:\d{1,3}\.){3}\d{1,3}\b/)[0], false);
+		$("networkbin").textContent = binaryoctet(getNetAddr(ipbin, subnetbin));
+		$("broadcastbin").textContent = binaryoctet(getBroadAddr(getNetAddr(ipbin, subnetbin), subnetbin));
+		$("broadcastdec").textContent = binary2dec($("broadcastbin").textContent);
+		$("ipdec").textContent = binary2dec($("ipbin").textContent);
+		$("subnetdec").textContent = binary2dec($("subnetbin").textContent);
+		$("networkdec").textContent = binary2dec($("networkbin").textContent);
+
+	}
+	return false;
+});
+
+</script>
+</body>
+</html>
