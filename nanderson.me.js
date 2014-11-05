@@ -58,15 +58,15 @@ Router.route('/projects', function() {
     }
   }
 });
-Router.route('/resume.pdf', function() {
-  
-}, {
+Router.route('/resume.pdf', function(){}, {
   where:'server'
 });
 Router.onAfterAction(function () {
   if (Meteor.isClient) {
     Deps.afterFlush(function () {
-      $(document).foundation();
+      // Quick fix to force offcanvas event rebinding.
+      // Github Issue: https://github.com/ewall/meteor-foundation/issues/11
+      $(document).foundation('offcanvas', 'events');
     });
   }
 }, {where:'client'});

@@ -6,6 +6,6 @@
 meteor-platform
 autopublish
 insecure
-foundation
 iron:router
+foundation
 
