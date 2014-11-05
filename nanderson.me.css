@@ -24,6 +24,14 @@
 .supporticons {
 	text-align:center;
 }
+.gravatar {
+	border-radius:50%;
+	background-image: url(https://secure.gravatar.com/avatar/591089a474bd3cba93b58f68d794517e.jpg?s=600);
+	background-size: auto 300px;
+	height:300px;
+	width:300px;
+	background-position:50% 50%;
+}
 @media screen and (max-width: 768px) {
 	#banner {
 		height:300px;
@@ -38,6 +46,13 @@
 		width:200px;
 		background-size:200px;
 		margin-top:50px;
+	}
+}
+@media screen and (max-width: 640px) {
+	.gravatar {
+		background-size: auto 150px;
+		height:150px;
+		width:150px;
 	}
 }
 
@@ -56,7 +71,4 @@
 [data-magellan-expedition], [data-magellan-expedition-clone] {
 	padding: 0 !important;
 	min-width: 250px !important;
-}
-.gravatar {
-	border-radius:50%;
 }
