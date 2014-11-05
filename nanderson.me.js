@@ -3,6 +3,24 @@ if (Meteor.isClient) {
   // Github Issue: https://github.com/ewall/meteor-foundation/issues/11
   $(function() {
     $(document).foundation('offcanvas', 'events');
+    $(document).foundation({
+      offcanvas : {
+        // Sets method in which offcanvas opens.
+        // [ move | overlap_single | overlap ]
+        open_method: 'move', 
+        // Should the menu close when a menu link is clicked?
+        // [ true | false ]
+        close_on_click : true
+      }
+    });
+    $(document).foundation({
+      "magellan-expedition": {
+        active_class: 'active', // specify the class used for active sections
+        threshold: 50, // how many pixels until the magellan bar sticks, 0 = auto
+        destination_threshold: 0, // pixels from the top of destination for it to be considered active
+        fixed_top: 0, // top distance in pixels assigned to the fixed element on scroll
+      }
+    });
   });
 }
 
@@ -11,55 +29,3 @@ if (Meteor.isServer) {
     // code to run on server at startup
   });
 }
-Router.configure({
-  layoutTemplate: 'ApplicationLayout'
-});
-Router.route('/', function() {
-  this.render('Home');
-  $(document).foundation();
-}, {
-  data: function() {
-    return {
-      page: {
-        home:true
-      }
-    }
-  }
-});
-Router.route("/contact", function() {
-  this.render("Contact");
-  $(document).foundation();
-}, {
-  data: function() {
-    return {
-      page: {
-        contact:true
-      }
-    }
-  }
-});
-Router.route('/resume', function() {
-  this.render("Resume");
-}, {
-  data: function() {
-    return {
-      page: {
-        resume:true
-      }
-    }
-  }
-});
-Router.route('/projects', function() {
-  this.render("Projects");
-}, {
-  data: function() {
-    return {
-      page: {
-        projects:true
-      }
-    }
-  }
-});
-Router.route('/resume.pdf', function(){}, {
-  where:'server'
-});

@@ -4,3 +4,54 @@
     <meta name="google-site-verification" content="krTQUKNfM0Xs8ne6NDxFohPsTqU2bs66bK6fDmTsy5c" />
     <title>Home of Nicholas Anderson</title>
 </head>
+
+<body>
+	<div class="off-canvas-wrap" data-magellan-destination="top">
+	<a name="top"></a>
+	  <div class="inner-wrap">
+	    <!-- Desktop navigation -->
+	      <div id="nav" class="contain-to-grid" data-magellan-expedition="fixed">
+	        <nav class="top-bar hide-for-small contain-to-grid" data-topbar>
+	          <ul class="title-area">
+	            <li class="name">
+	              <h1 data-magellan-arrival="top"><a href="#top">Nicholas Anderson</a></h1>
+	            </li>
+	          </ul>
+	          <section class="top-bar-section">
+	            <ul class="right">
+	              <li data-magellan-arrival="about"><a href="#about">About</a></li>
+	              <li data-magellan-arrival="projects"><a href="#projects">Projects</a></li>
+	              <li data-magellan-arrival="contact"><a href="#contact">Contact</a></li>
+	              <li><a href="/resume.pdf">Resume</a></li>
+	            </ul>
+	          </section>
+	        </nav>
+	      </div>
+	    <!-- Mobile navigation -->
+	      <nav class="tab-bar show-for-small" data-topbar role="navigation">
+	        <section class="left-small">
+	          <a class="left-off-canvas-toggle menu-icon"><span></span></a>
+	        </section>
+	        <section class="middle tab-bar-section">
+	          <h1 class="title">Nicholas Anderson</h1>
+	        </section>
+	      </nav>
+	      <aside class="left-off-canvas-menu" data-magellan-expedition="" id="off-canvas">
+	        <ul class="off-canvas-list">
+	          <li><label>Nicholas Anderson</label></li>
+	          <li data-magellan-arrival="about"><a href="#about">About</a></li>
+	          <li data-magellan-arrival="contact"><a href="#contact">Contact</a></li>
+	          <li data-magellan-arrival="projects"><a href="#projects">Projects</a></li>
+	          <li><a href="/resume.pdf">Resume</a></li>
+	        </ul>
+	      </aside>
+	    <!-- End navigation -->
+	    <section class="main-section">
+	        {{> about }}
+	        {{> projects }}
+	        {{> contact }}
+	    </section>
+	    <a class="exit-off-canvas"></a>
+	  </div>
+	</div>
+</body>
