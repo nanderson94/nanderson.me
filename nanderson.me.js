@@ -1,7 +1,9 @@
 if (Meteor.isClient) {
-  // Template.main.rendered = function() {
-  //   $(document).foundation();
-  // }
+  // Quick fix to force offcanvas event rebinding.
+  // Github Issue: https://github.com/ewall/meteor-foundation/issues/11
+  $(function() {
+    $(document).foundation('offcanvas', 'events');
+  });
 }
 
 if (Meteor.isServer) {
@@ -61,12 +63,3 @@ Router.route('/projects', function() {
 Router.route('/resume.pdf', function(){}, {
   where:'server'
 });
-Router.onAfterAction(function () {
-  if (Meteor.isClient) {
-    Deps.afterFlush(function () {
-      // Quick fix to force offcanvas event rebinding.
-      // Github Issue: https://github.com/ewall/meteor-foundation/issues/11
-      $(document).foundation('offcanvas', 'events');
-    });
-  }
-}, {where:'client'});
