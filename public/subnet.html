@@ -143,7 +143,7 @@ $("calcform").addEventListener("submit", function(e) {
 		$("networkbin").textContent = binaryoctet(getNetAddr(ipbin, subnetbin));
 		$("broadcastbin").textContent = binaryoctet(getBroadAddr(getNetAddr(ipbin, subnetbin), subnetbin));
 		$("broadcastdec").textContent = binary2dec($("broadcastbin").textContent);
-		$("ipdec").textContent = binary2dec($("ipbin").textContent);
+		$("ipdec").textContent = binary2dec($("ipbin").textContent.trim());
 		$("subnetdec").textContent = binary2dec($("subnetbin").textContent);
 		$("networkdec").textContent = binary2dec($("networkbin").textContent);
 
