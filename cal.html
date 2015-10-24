@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<title>Calendar test</title>
+
+	</head>
+	<body>
+		<span id="text">Hi</span>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+		<script>
+			var apiKey = "AIzaSyDgaXDxmMEdtbIaq3TXmf4jxXZLG8CeoMs";
+			var dow = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
+			
+
+
+			$.getJSON("https://www.googleapis.com/calendar/v3/calendars/kaiuicpoki9p3u92eklent0eec%40group.calendar.google.com/events",
+				{
+					"singleEvents":"true",
+					"orderBy":"startTime",
+					"timeMin":new Date().toISOString(),
+					"showDeleted":"false",
+					"maxResults":"1",
+					"q":"SRCT+Weekly+Meeting",
+					"key":apiKey
+				},
+				function(data) {
+					console.log(data.items[0])
+					var d = new Date(data.items[0].start.dateTime);
+					var monthName = d.toLocaleString("en-us", {month: "long"});
+					var dateOptions = { weekday: 'long', month: 'long', day: 'numeric' };
+					var timeOptions = { hour: 'numeric', minute: 'numeric'};
+					var dateString = d.toLocaleString("en-us", dateOptions);
+					var timeString = d.toLocaleString("en-us", timeOptions);
+					$("#text").text("Join us for our next meeting in "+data.items[0].location+" at "+timeString+" on "+dateString)
+				})
+		</script>
+	</body>
+</html>

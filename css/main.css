@@ -1,0 +1,74 @@
+#banner {
+	background-image: url(/img/banner.png);
+	height: 450px;
+	background-position:50% 60%;
+	text-align:center;
+	margin-bottom:20px;
+}
+#banner_small {
+	background-image: url(/img/banner.png);
+	height: 300px;
+	background-position:50% 60%;
+	text-align:center;
+	margin-bottom:20px;
+}
+#banner h1 {
+	margin-top:75px;
+	text-align:center;
+	display:inline-block;
+	font-weight:bold;
+}
+.supporticons img {
+	max-height:200px;
+}
+.supporticons {
+	text-align:center;
+}
+.gravatar {
+	border-radius:50%;
+	background-image: url(https://secure.gravatar.com/avatar/591089a474bd3cba93b58f68d794517e.jpg?s=600);
+	background-size: auto 300px;
+	height:300px;
+	width:300px;
+	background-position:50% 50%;
+}
+@media screen and (max-width: 768px) {
+	#banner {
+		height:300px;
+		background-size: auto 600px;
+	}
+	#banner_small {
+		height:150px;
+		background-size: auto 600px;
+	}
+	#banner span {
+		height:200px;
+		width:200px;
+		background-size:200px;
+		margin-top:50px;
+	}
+}
+@media screen and (max-width: 640px) {
+	.gravatar {
+		background-size: auto 150px;
+		height:150px;
+		width:150px;
+	}
+}
+
+.off-canvas-wrap, .inner-wrap {
+	min-height: 100vh;
+}
+
+.off-canvas-wrap{  
+	min-height: 100vh;
+}
+#nav {
+	background-color:rgb(51, 51, 51) !important;
+	padding: 0 !important;
+	position:fixed !important;
+}
+[data-magellan-expedition], [data-magellan-expedition-clone] {
+	padding: 0 !important;
+	min-width: 250px !important;
+}
